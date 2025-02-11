@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guruzen - Text Snippet Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="import-export-buttons">
+        <button class="import-export-button" onclick="exportData()"><span>⬇</span> Export</button>
+        <button class="import-export-button" onclick="importData()">
+            <span>⬆</span> Import
+        </button>
+    </div>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search..." oninput="searchSnippets()">
+    </div>
+    <div class="tabs" id="tabButtons"></div>
+    <div class="add-remove-buttons">
+        <input type="text" id="newSectionName" placeholder="Enter section name" style="margin-right:5px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+        <button class="add-remove-button-section" onclick="addSection()">Add Section</button>
+        <button class="remove-section-button" onclick="openRemoveSectionModal()">Remove Section</button>
+    </div>
+
+    <div id="tabContents"></div>
+    <textarea id="import-textarea" placeholder="Paste the JSON code here to import"></textarea>
+    <textarea id="export-textarea" style="display:none;" readonly placeholder="Copy this to the file."></textarea>
+    <div id="removeSectionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRemoveSectionModal()">×</span>
+            <h2>Select a section to remove</h2>
+            <ul id="sectionList" class="section-list">
+                <!-- Section list items will be added here by JS -->
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
